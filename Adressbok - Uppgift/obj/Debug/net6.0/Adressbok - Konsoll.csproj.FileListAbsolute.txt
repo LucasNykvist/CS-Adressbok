@@ -1,0 +1,15 @@
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\Adressbok - Konsoll.exe
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\Adressbok - Konsoll.deps.json
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\Adressbok - Konsoll.runtimeconfig.json
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\Adressbok - Konsoll.dll
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\Adressbok - Konsoll.pdb
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.csproj.AssemblyReference.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.AssemblyInfoInputs.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.AssemblyInfo.cs
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.csproj.CoreCompileInputs.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.dll
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\refint\Adressbok - Konsoll.dll
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.pdb
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\Adressbok - Konsoll.genruntimeconfig.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\ref\Adressbok - Konsoll.dll
