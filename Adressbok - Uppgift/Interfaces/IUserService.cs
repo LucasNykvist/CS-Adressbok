@@ -4,8 +4,10 @@
     {
         void AddUser();
 
-        void GetAllUsers();
+        void GetAllUsers(string filepath);
 
-        void RemovepecificUser();
+        void RemoveSpecificUser();
+
+        void SaveToJsonFile(string filepath);
     }
 }

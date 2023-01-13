@@ -1,10 +1,13 @@
-﻿using Adressbok___Uppgift.Interfaces;
+﻿using System.Text.Json;
+using System.IO;
+using Adressbok___Uppgift.Interfaces;
 using Adressbok___Uppgift.Models;
 
 namespace Adressbok___Uppgift.Services
 {
     public class UserService : IUserService
     {
+        List<User> Users = new List<User>();
         public void AddUser()
         {
             User user = new User();
@@ -35,11 +38,23 @@ namespace Adressbok___Uppgift.Services
         }
 
 
-        public void GetAllUsers()
+        public void GetAllUsers(string filepath)
         {
+
+            if (!File.Exists(filepath))
+            {
+                Console.WriteLine("There Is No Adressbook File! Press enter to continue...");
+                Console.ReadKey();
+                return;
+            }
+
+            var jsonString = File.ReadAllText(filepath);
+
+            Users = JsonSerializer.Deserialize<List<User>>(jsonString);
+
             if(Users.Count == 0)
             {
-                Console.WriteLine("The Adressbook Is Empty! Press enter to continue");
+                Console.WriteLine("The Adressbook Is Empty! Press enter to continue...");
                 Console.ReadKey();
                 return;
             }
@@ -62,9 +77,28 @@ namespace Adressbok___Uppgift.Services
 
         }
 
-        public void RemovepecificUser()
+        public void RemoveSpecificUser()
         {
             throw new NotImplementedException();
         }
+
+        public void SaveToJsonFile(string filepath)
+        {
+
+            var serializedUsers = new List<string>();
+
+            foreach (var user in Users)
+            {
+                var _jsonString = JsonSerializer.Serialize(user);
+                serializedUsers.Add(_jsonString);
+            }
+
+            var jsonString = string.Join(",", serializedUsers + "]");
+
+            jsonString = "[" + jsonString + "]";
+
+            File.AppendAllText(filepath, jsonString);
+        }
+
     }
 }

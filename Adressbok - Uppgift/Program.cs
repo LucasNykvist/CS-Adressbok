@@ -1,12 +1,11 @@
 ﻿using Adressbok___Uppgift.Models;
 using Adressbok___Uppgift.Services;
 
-
+UserService userService = new UserService();
 bool isRunning = true;
 while (isRunning)
 {
     Menu menu = new Menu();
-    UserService userService = new UserService();
     menu.ShowMenu();
     if (Int32.TryParse(Console.ReadLine(), out int menuChoice))
     {
@@ -14,10 +13,11 @@ while (isRunning)
         {
             case 1:
                 userService.AddUser();
+                userService.SaveToJsonFile("users.json");
                 break;
 
             case 2:
-                userService.GetAllUsers();
+                userService.GetAllUsers("users.json");
                 break;
 
             case 3:
