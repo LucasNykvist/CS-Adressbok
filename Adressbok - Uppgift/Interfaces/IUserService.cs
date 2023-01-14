@@ -6,8 +6,9 @@
 
         void GetAllUsers(string filepath);
 
+        void GetUser(string firstName);
+
         void RemoveSpecificUser();
 
-        void SaveToJsonFile(string filepath);
     }
 }

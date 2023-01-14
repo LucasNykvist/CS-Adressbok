@@ -16,7 +16,7 @@ namespace Adressbok___Uppgift.Services
 
             Console.WriteLine("Menu 2: Show All Contacts");
 
-            Console.WriteLine("Menu 3: Show Contact");
+            Console.WriteLine("Menu 3: Show Specific Contact");
 
             Console.WriteLine("Menu 4: Remove Contact");
 

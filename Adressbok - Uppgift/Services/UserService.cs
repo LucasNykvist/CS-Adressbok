@@ -32,73 +32,89 @@ namespace Adressbok___Uppgift.Services
             Console.WriteLine("Enter City Name: ");
             user.City = Console.ReadLine();
 
-            Users.Add(user);
+
+            if (File.Exists("users.json") && File.ReadAllText("users.json").Length > 0)
+            {
+                string jsonString = File.ReadAllText("users.json");
+                List<User> existingUsers = JsonSerializer.Deserialize<List<User>>(jsonString);
+                existingUsers.Add(user);
+                jsonString = JsonSerializer.Serialize(existingUsers);
+                File.WriteAllText("users.json", jsonString);
+            }
+            else
+            {
+                Users.Add(user);
+                string jsonString = JsonSerializer.Serialize(Users);
+                File.WriteAllText("users.json", jsonString);
+            }
+
             Console.WriteLine("\nPress any key to continue\n");
             Console.ReadKey();
         }
 
-
         public void GetAllUsers(string filepath)
         {
 
-            if (!File.Exists(filepath))
+            if (File.Exists("users.json"))
             {
-                Console.WriteLine("There Is No Adressbook File! Press enter to continue...");
-                Console.ReadKey();
-                return;
+                Console.WriteLine("All The Contacts In Your Adressbook: ");
+                string jsonString = File.ReadAllText("users.json");
+                List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
+
+                foreach (User user in users)
+                {
+                    Console.WriteLine("First Name: " + user.FirstName);
+                    Console.WriteLine("Last Name: " + user.LastName);
+                    Console.WriteLine("Email: " + user.Email);
+                    Console.WriteLine();
+                }
             }
-
-            var jsonString = File.ReadAllText(filepath);
-
-            Users = JsonSerializer.Deserialize<List<User>>(jsonString);
-
-            if(Users.Count == 0)
+            else
             {
-                Console.WriteLine("The Adressbook Is Empty! Press enter to continue...");
-                Console.ReadKey();
-                return;
-            }
-
-            Console.WriteLine("All The Contacts In Your Adressbook: ");
-            foreach(var user in Users)
-            {
-                PrintUser(user);
+                Console.WriteLine("There is no file containing any contacts");
             }
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
         }
 
-        private void PrintUser(User user)
+        public void GetUser(string firstName)
         {
-            Console.WriteLine($"First Name: {user.FirstName}");
-            Console.WriteLine($"Last Name: {user.LastName}");
-            Console.WriteLine($"Email: {user.Email}");
+            if (File.Exists("users.json"))
+            {
+                string jsonString = File.ReadAllText("users.json");
+                List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
 
+                var user = users.Find(x => x.FirstName == firstName);
+
+                if (user != null)
+                {
+                    Console.WriteLine("---The Contact Was Found---\n");
+                    Console.WriteLine("First Name: " + user.FirstName);
+                    Console.WriteLine("Last Name: " + user.LastName);
+                    Console.WriteLine("Email: " + user.Email);
+                    Console.WriteLine("Telephone Number: " + user.TelephoneNumber);
+                    Console.WriteLine($"Adress: {user.StreetAdress}, {user.PostCode} {user.City}\n");
+                    Console.WriteLine("---------------------------\n");
+
+                    Console.WriteLine("Press any key to continue.");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("User not found!");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("There is no file containing any contacts");
+            }
         }
 
         public void RemoveSpecificUser()
         {
             throw new NotImplementedException();
         }
-
-        public void SaveToJsonFile(string filepath)
-        {
-
-            var serializedUsers = new List<string>();
-
-            foreach (var user in Users)
-            {
-                var _jsonString = JsonSerializer.Serialize(user);
-                serializedUsers.Add(_jsonString);
-            }
-
-            var jsonString = string.Join(",", serializedUsers + "]");
-
-            jsonString = "[" + jsonString + "]";
-
-            File.AppendAllText(filepath, jsonString);
-        }
-
     }
 }

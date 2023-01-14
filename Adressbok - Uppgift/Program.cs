@@ -1,5 +1,4 @@
-﻿using Adressbok___Uppgift.Models;
-using Adressbok___Uppgift.Services;
+﻿using Adressbok___Uppgift.Services;
 
 UserService userService = new UserService();
 bool isRunning = true;
@@ -13,7 +12,6 @@ while (isRunning)
         {
             case 1:
                 userService.AddUser();
-                userService.SaveToJsonFile("users.json");
                 break;
 
             case 2:
@@ -21,7 +19,8 @@ while (isRunning)
                 break;
 
             case 3:
-
+                Console.WriteLine("Enter the first name of the user");
+                userService.GetUser(Console.ReadLine());
                 break;
 
             case 4:
