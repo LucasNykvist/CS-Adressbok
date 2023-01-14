@@ -8,6 +8,7 @@ namespace Adressbok___Uppgift.Services
     public class UserService : IUserService
     {
         List<User> Users = new List<User>();
+
         public void AddUser()
         {
             User user = new User();
