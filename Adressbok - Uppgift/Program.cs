@@ -39,8 +39,9 @@ while (isRunning)
 
                 // Case 4 som aktiverar RemoveSpecificUser metoden från userService
             case 4:
-                Console.WriteLine("Enter the first name of the contact you would like to remove");
+                Console.WriteLine("Enter the first name of the contact you would like to remove");               
                 userService.RemoveSpecificUser(Console.ReadLine().ToUpper());
+
                 break;
 
                 // Case 5 som sätter isRunning variablen till false och därmed stänger av programmet

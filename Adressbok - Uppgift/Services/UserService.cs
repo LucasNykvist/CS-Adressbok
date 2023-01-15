@@ -115,26 +115,60 @@ namespace Adressbok___Uppgift.Services
 
         public void RemoveSpecificUser(string firstName)
         {
-            if (File.Exists("users.json"))
+            Console.WriteLine("Are you sure you want to remove this contact?`\n" +
+                "'Y' for YES\n" +
+                "'N' for NO");
+
+            bool YesNo = true;
+            string accept = Console.ReadLine().ToUpper();
+
+
+            switch (accept)
             {
-                string jsonString = File.ReadAllText("users.json");
-                List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
-                User user = users.Find(x => x.FirstName == firstName);
-                if (user != null)
+                case "Y":
+                    YesNo = true;
+                    break;
+
+                case "N":
+                    YesNo = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Not a valid option");
+                    break;
+            }
+
+            if (YesNo)
+            {
+                if (File.Exists("users.json"))
                 {
-                    users.Remove(user);
-                    jsonString = JsonSerializer.Serialize(users);
-                    File.WriteAllText("users.json", jsonString);
-                    Console.WriteLine("Contact was deleted successfully!");
+                    string jsonString = File.ReadAllText("users.json");
+                    List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
+                    User user = users.Find(x => x.FirstName == firstName);
+                    if (user != null)
+                    {
+                        users.Remove(user);
+                        jsonString = JsonSerializer.Serialize(users);
+                        File.WriteAllText("users.json", jsonString);
+                        Console.WriteLine("Contact was deleted successfully!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Contact not found!");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Contact not found!");
+                    Console.WriteLine("Contact file not found!");
                 }
             }
             else
             {
-                Console.WriteLine("Contact file not found!");
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Contact will not be removed\n");
+                Console.WriteLine("Press any key to continue");
+                Console.WriteLine("---------------------");
+                Console.ReadKey();
             }
         }
     }
