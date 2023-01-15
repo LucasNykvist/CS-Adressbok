@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Adressbok___Uppgift.Interfaces;
+﻿using Adressbok___Uppgift.Interfaces;
 
 namespace Adressbok___Uppgift.Services
 {
@@ -11,6 +6,8 @@ namespace Adressbok___Uppgift.Services
     {
         public void ShowMenu()
         {
+
+            Console.WriteLine(" ");
 
             Console.WriteLine("Menu 1: Create Contact");
 
@@ -21,6 +18,8 @@ namespace Adressbok___Uppgift.Services
             Console.WriteLine("Menu 4: Remove Contact");
 
             Console.WriteLine("Menu 5: Close Program");
+
+            Console.WriteLine(" ");
         }
     }
 }

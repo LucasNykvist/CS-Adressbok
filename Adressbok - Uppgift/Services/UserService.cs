@@ -12,27 +12,22 @@ namespace Adressbok___Uppgift.Services
         public void AddUser()
         {
             User user = new User();
-            Console.WriteLine("Enter First Name: ");
-            user.FirstName = Console.ReadLine().ToUpper();
 
-            Console.WriteLine("Enter Last Name: ");
-            user.LastName = Console.ReadLine().ToUpper();
+            string[] contactProps = { "FirstName", "LastName", "Email", "TelephoneNumber", "StreetAdress", "PostCode", "City" };
 
-            Console.WriteLine("Enter Email: ");
-            user.Email = Console.ReadLine().ToUpper();
+            foreach (string prop in contactProps)
+            {
+                while (string.IsNullOrEmpty(user.GetType().GetProperty(prop)?.GetValue(user, null)?.ToString()))
+                {
+                    Console.WriteLine($"Enter {prop}: ");
+                    user.GetType().GetProperty(prop).SetValue(user, Console.ReadLine().ToUpper());
 
-            Console.WriteLine("Enter Telephone Number: ");
-            user.TelephoneNumber = Console.ReadLine();
-
-            Console.WriteLine("Enter Street Adress: ");
-            user.StreetAdress = Console.ReadLine().ToUpper();
-
-            Console.WriteLine("Enter Postcode: ");
-            user.PostCode = Console.ReadLine();
-
-            Console.WriteLine("Enter City Name: ");
-            user.City = Console.ReadLine().ToUpper();
-
+                    if (string.IsNullOrWhiteSpace(user.GetType().GetProperty(prop)?.GetValue(user, null)?.ToString()))
+                    {
+                        Console.WriteLine($"Error, you need to enter {prop}");
+                    }
+                }
+            }
 
             if (File.Exists("users.json") && File.ReadAllText("users.json").Length > 0)
             {
@@ -121,7 +116,6 @@ namespace Adressbok___Uppgift.Services
 
             bool YesNo = true;
             string accept = Console.ReadLine().ToUpper();
-
 
             switch (accept)
             {
