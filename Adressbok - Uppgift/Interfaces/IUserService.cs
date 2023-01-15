@@ -8,7 +8,7 @@
 
         void GetUser(string firstName);
 
-        void RemoveSpecificUser();
+        void RemoveSpecificUser(string firstName);
 
     }
 }

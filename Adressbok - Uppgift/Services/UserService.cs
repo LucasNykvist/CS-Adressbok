@@ -103,19 +103,39 @@ namespace Adressbok___Uppgift.Services
                 }
                 else
                 {
-                    Console.WriteLine("User not found!");
+                    Console.WriteLine("Contact dose not exist!");
                 }
 
             }
             else
             {
-                Console.WriteLine("There is no file containing any contacts");
+                Console.WriteLine("Contact file not found!");
             }
         }
 
-        public void RemoveSpecificUser()
+        public void RemoveSpecificUser(string firstName)
         {
-            throw new NotImplementedException();
+            if (File.Exists("users.json"))
+            {
+                string jsonString = File.ReadAllText("users.json");
+                List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
+                User user = users.Find(x => x.FirstName == firstName);
+                if (user != null)
+                {
+                    users.Remove(user);
+                    jsonString = JsonSerializer.Serialize(users);
+                    File.WriteAllText("users.json", jsonString);
+                    Console.WriteLine("Contact was deleted successfully!");
+                }
+                else
+                {
+                    Console.WriteLine("Contact not found!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Contact file not found!");
+            }
         }
     }
 }
