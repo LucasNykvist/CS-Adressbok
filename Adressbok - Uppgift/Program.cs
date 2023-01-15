@@ -34,7 +34,7 @@ while (isRunning)
                 // Case 3 som aktiverar GetUser metoden från userService
             case 3:
                 Console.WriteLine("Enter the first name of the user");
-                userService.GetUser(Console.ReadLine());
+                userService.GetUser(Console.ReadLine().ToUpper());
                 break;
 
                 // Case 4 som aktiverar RemoveSpecificUser metoden från userService

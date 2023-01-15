@@ -13,25 +13,25 @@ namespace Adressbok___Uppgift.Services
         {
             User user = new User();
             Console.WriteLine("Enter First Name: ");
-            user.FirstName = Console.ReadLine();
+            user.FirstName = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Enter Last Name: ");
-            user.LastName = Console.ReadLine();
+            user.LastName = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Enter Email: ");
-            user.Email = Console.ReadLine();
+            user.Email = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Enter Telephone Number: ");
             user.TelephoneNumber = Console.ReadLine();
 
             Console.WriteLine("Enter Street Adress: ");
-            user.StreetAdress = Console.ReadLine();
+            user.StreetAdress = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Enter Postcode: ");
             user.PostCode = Console.ReadLine();
 
             Console.WriteLine("Enter City Name: ");
-            user.City = Console.ReadLine();
+            user.City = Console.ReadLine().ToUpper();
 
 
             if (File.Exists("users.json") && File.ReadAllText("users.json").Length > 0)
