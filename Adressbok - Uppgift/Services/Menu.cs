@@ -7,8 +7,6 @@ namespace Adressbok___Uppgift.Services
         public void ShowMenu()
         {
 
-            Console.WriteLine(" ");
-
             Console.WriteLine("Menu 1: Create Contact");
 
             Console.WriteLine("Menu 2: Show All Contacts");
@@ -19,7 +17,6 @@ namespace Adressbok___Uppgift.Services
 
             Console.WriteLine("Menu 5: Close Program");
 
-            Console.WriteLine(" ");
         }
     }
 }
