@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using System.IO;
 using Adressbok___Uppgift.Interfaces;
 using Adressbok___Uppgift.Models;
 
@@ -13,15 +12,22 @@ namespace Adressbok___Uppgift.Services
         {
             User user = new User();
 
+            // Array för alla props som våra kontaker har
             string[] contactProps = { "FirstName", "LastName", "Email", "TelephoneNumber", "StreetAdress", "PostCode", "City" };
 
+            // Foreach loop som går igenom alla props som våra kontakter har
             foreach (string prop in contactProps)
             {
+                //MEDANS en prop är tom genomförs logiken inuti blocket
                 while (string.IsNullOrEmpty(user.GetType().GetProperty(prop)?.GetValue(user, null)?.ToString()))
                 {
+
+                    //Vi ber användaren att ange ett värde till varje prop
                     Console.WriteLine($"Enter {prop}: ");
                     user.GetType().GetProperty(prop).SetValue(user, Console.ReadLine().ToUpper());
 
+
+                    //Om användare inte anger något printas ett error som säger att de måste ange ett värde - Loopar sedan tillbaks till koden över
                     if (string.IsNullOrWhiteSpace(user.GetType().GetProperty(prop)?.GetValue(user, null)?.ToString()))
                     {
                         Console.WriteLine($"Error, you need to enter {prop}");
@@ -29,14 +35,25 @@ namespace Adressbok___Uppgift.Services
                 }
             }
 
+            //Kollar om contacts.json filen existerar och innehåller något
             if (File.Exists("users.json") && File.ReadAllText("users.json").Length > 0)
             {
+                //Först sparar vi all användare som finns i filen till jsonString variabeln
                 string jsonString = File.ReadAllText("users.json");
+
+                //Sedan skapar vi en lista med alla existerande kontakten
                 List<User> existingUsers = JsonSerializer.Deserialize<List<User>>(jsonString);
+
+                //Efter det lägger vi till den nya kontakten
                 existingUsers.Add(user);
+
+                //Sedan serialiserar vi den uppdaterade listan till jsonString variabeln
                 jsonString = JsonSerializer.Serialize(existingUsers);
+
+                //Till sist skriver vi över allt i filen med den uppdaterade jsonString
                 File.WriteAllText("users.json", jsonString);
             }
+            //Om filen är tom lägger vi till kontakten direkt från contacts listan
             else
             {
                 Users.Add(user);
@@ -50,7 +67,6 @@ namespace Adressbok___Uppgift.Services
 
         public void GetAllUsers(string filepath)
         {
-
             if (File.Exists("users.json"))
             {
                 Console.WriteLine("All The Contacts In Your Adressbook: ");

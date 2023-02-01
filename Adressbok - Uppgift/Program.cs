@@ -1,5 +1,5 @@
-﻿using Adressbok___Uppgift.Services;
-
+﻿//Importering av våra services 
+using Adressbok___Uppgift.Services;
 
 //Instansiering av service för skapa, visa och radera kontakter
 UserService userService = new UserService();
@@ -57,7 +57,7 @@ while (isRunning)
 
         
     }
-    // OM det inte är en siffra och är exempelvis en text kommer vi in else blocket som säger till användaren att inputen inte är giltig
+    // OM det inte är en siffra och är exempelvis en string, kommer vi in else blocket som säger till användaren att inputen inte är giltig
     else
     {
         Console.WriteLine("Invalid Input, Please enter a valid menu choice");

@@ -1,0 +1,15 @@
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.csproj.AssemblyReference.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.AssemblyInfoInputs.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.AssemblyInfo.cs
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.csproj.CoreCompileInputs.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\AdressbokKonsoll.exe
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\AdressbokKonsoll.deps.json
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\AdressbokKonsoll.runtimeconfig.json
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\AdressbokKonsoll.dll
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\bin\Debug\net6.0\AdressbokKonsoll.pdb
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.dll
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\refint\AdressbokKonsoll.dll
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.pdb
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\AdressbokKonsoll.genruntimeconfig.cache
+C:\Users\lukep\Desktop\C# Projekt\Adressbok - Uppgift\Adressbok - Uppgift\obj\Debug\net6.0\ref\AdressbokKonsoll.dll
