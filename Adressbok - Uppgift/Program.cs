@@ -2,7 +2,7 @@
 using Adressbok___Uppgift.Services;
 
 //Instansiering av service för skapa, visa och radera kontakter
-UserService userService = new UserService();
+ContactService userService = new ContactService();
 
 //Variabel för aktivering och avstängning av program
 bool isRunning = true;
@@ -23,24 +23,24 @@ while (isRunning)
         {
                 // Case 1 som aktiverar AddUser metoden från userService
             case 1:
-                userService.AddUser();
+                userService.AddContact();
                 break;
 
                 // Case 2 som aktiverar GetAllUsers metoden från userService
             case 2:
-                userService.GetAllUsers("users.json");
+                userService.GetAllContacts("users.json");
                 break;
 
                 // Case 3 som aktiverar GetUser metoden från userService
             case 3:
                 Console.WriteLine("Enter the first name of the contact you would like to see");
-                userService.GetUser(Console.ReadLine().ToUpper());
+                userService.GetContact(Console.ReadLine().ToUpper());
                 break;
 
                 // Case 4 som aktiverar RemoveSpecificUser metoden från userService
             case 4:
                 Console.WriteLine("Enter the first name of the contact you would like to remove");               
-                userService.RemoveSpecificUser(Console.ReadLine().ToUpper());
+                userService.RemoveSpecificContact(Console.ReadLine().ToUpper());
 
                 break;
 

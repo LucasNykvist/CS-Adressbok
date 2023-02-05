@@ -4,13 +4,13 @@ using Adressbok___Uppgift.Models;
 
 namespace Adressbok___Uppgift.Services
 {
-    public class UserService : IUserService
+    public class ContactService : IContactService
     {
-        List<User> Users = new List<User>();
+        List<Contact> Contacts = new List<Contact>();
 
-        public void AddUser()
+        public void AddContact()
         {
-            User user = new User();
+            Contact user = new Contact();
 
             // Array för alla props som våra kontaker har
             string[] contactProps = { "FirstName", "LastName", "Email", "TelephoneNumber", "StreetAdress", "PostCode", "City" };
@@ -42,7 +42,7 @@ namespace Adressbok___Uppgift.Services
                 string jsonString = File.ReadAllText("users.json");
 
                 //Sedan skapar vi en lista med alla existerande kontakten
-                List<User> existingUsers = JsonSerializer.Deserialize<List<User>>(jsonString);
+                List<Contact> existingUsers = JsonSerializer.Deserialize<List<Contact>>(jsonString);
 
                 //Efter det lägger vi till den nya kontakten
                 existingUsers.Add(user);
@@ -56,8 +56,8 @@ namespace Adressbok___Uppgift.Services
             //Om filen är tom lägger vi till kontakten direkt från contacts listan
             else
             {
-                Users.Add(user);
-                string jsonString = JsonSerializer.Serialize(Users);
+                Contacts.Add(user);
+                string jsonString = JsonSerializer.Serialize(Contacts);
                 File.WriteAllText("users.json", jsonString);
             }
 
@@ -65,15 +65,15 @@ namespace Adressbok___Uppgift.Services
             Console.ReadKey();
         }
 
-        public void GetAllUsers(string filepath)
+        public void GetAllContacts(string filepath)
         {
             if (File.Exists("users.json"))
             {
                 Console.WriteLine("All The Contacts In Your Adressbook: ");
                 string jsonString = File.ReadAllText("users.json");
-                List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
+                List<Contact> users = JsonSerializer.Deserialize<List<Contact>>(jsonString);
 
-                foreach (User user in users)
+                foreach (Contact user in users)
                 {
                     Console.WriteLine("First Name: " + user.FirstName);
                     Console.WriteLine("Last Name: " + user.LastName);
@@ -90,12 +90,12 @@ namespace Adressbok___Uppgift.Services
             Console.ReadKey();
         }
 
-        public void GetUser(string firstName)
+        public void GetContact(string firstName)
         {
             if (File.Exists("users.json"))
             {
                 string jsonString = File.ReadAllText("users.json");
-                List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
+                List<Contact> users = JsonSerializer.Deserialize<List<Contact>>(jsonString);
 
                 var user = users.Find(x => x.FirstName == firstName);
 
@@ -124,7 +124,7 @@ namespace Adressbok___Uppgift.Services
             }
         }
 
-        public void RemoveSpecificUser(string firstName)
+        public void RemoveSpecificContact(string firstName)
         {
             Console.WriteLine("Are you sure you want to remove this contact?`\n" +
                 "'Y' for YES\n" +
@@ -153,8 +153,8 @@ namespace Adressbok___Uppgift.Services
                 if (File.Exists("users.json"))
                 {
                     string jsonString = File.ReadAllText("users.json");
-                    List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
-                    User user = users.Find(x => x.FirstName == firstName);
+                    List<Contact> users = JsonSerializer.Deserialize<List<Contact>>(jsonString);
+                    Contact user = users.Find(x => x.FirstName == firstName);
                     if (user != null)
                     {
                         users.Remove(user);

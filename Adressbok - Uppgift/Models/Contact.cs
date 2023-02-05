@@ -2,7 +2,7 @@
 
 namespace Adressbok___Uppgift.Models
 {
-    public class User : IUser
+    public class Contact : IContact
     {
         public string FirstName { get; set; } = null!;
         public string LastName { get ; set ; } = null!;

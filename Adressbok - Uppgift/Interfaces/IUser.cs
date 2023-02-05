@@ -2,7 +2,7 @@
 
 namespace Adressbok___Uppgift.Interfaces
 {
-    public interface IUser
+    public interface IContact
     {
         string FirstName { get; set; }
         string LastName { get; set; }
